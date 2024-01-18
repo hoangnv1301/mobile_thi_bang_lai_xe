@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/app_icon"
+        android:label="Thi bằng lái xe 2023"
+        android:roundIcon="@drawable/app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Btl_thibanglaixe"
+        tools:targetApi="31">
+        <activity
+            android:name=".Activities.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:parentActivityName=".Activities.DangNhapActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".Activities.DangNhapActivity"
+            android:label="App thi bằng lái xe"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.DangKyActivity"
+            android:label="Đăng ký"
+            android:parentActivityName=".Activities.DangNhapActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".Activities.QuenMatKhauActivity"
+            android:label="Đặt lại mật khẩu"
+            android:parentActivityName=".Activities.DangNhapActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".Activities.DatLaiMatKhauActivity"
+            android:label="Đặt lại mật khẩu"
+            android:parentActivityName=".Activities.QuenMatKhauActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".Activities.ThiSatHachActivity"
+            android:label="Thi sát hạch"
+            android:parentActivityName=".Activities.MainActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".Activities.MeoGhiNhoActivity"
+            android:label="Mẹo ghi nhớ"
+            android:parentActivityName=".Activities.MainActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity android:name=".Activities.BienBaoActivity"
+            android:parentActivityName=".Activities.MainActivity"
+            android:label="Biển báo"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity android:name=".Activities.KetQuaActivity"
+            android:parentActivityName=".Activities.MainActivity"
+            android:label="Kết quả thi"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity android:name=".Activities.XemLaiDapAnActivity"
+            android:parentActivityName=".Activities.KetQuaActivity"
+            android:label="Xem lại đáp án"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity android:name=".Activities.LichSuBaiThiActivity"
+            android:parentActivityName=".Activities.MainActivity"
+            android:label="Lịch sử bài thi"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity android:name=".Activities.MeoThucHanhAActivity"
+            android:parentActivityName=".Activities.MainActivity"
+            android:label="Mẹo thực hành"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity android:name=".Activities.MeoThucHanhBActivity"
+            android:parentActivityName=".Activities.MainActivity"
+            android:label="Mẹo thực hành"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity android:name=".Activities.KinhNghiemThiAActivity"
+            android:parentActivityName=".Activities.MeoThucHanhAActivity"
+            android:label="Kinh nghiệm thi"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity android:name=".Activities.LyThuyetActivity"
+            android:parentActivityName=".Activities.MeoThucHanhAActivity"
+            android:label="Lý thuyết"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity android:name=".Activities.KinhNghiemThiBActivity"
+            android:parentActivityName=".Activities.MeoThucHanhBActivity"
+            android:label="Kinh nghiệm thi"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+    </application>
+    <meta-data android:name="android.hardware.touchscreen.multitouch.distinct" android:value="true" />
+
+</manifest>
