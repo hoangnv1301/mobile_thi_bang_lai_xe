@@ -19,7 +19,7 @@
         android:textAlignment="center"/>
 
     <EditText
-        android:id="@+id/usernameEditText"
+        android:id="@+id/userAccountEditText"
         android:hint="Tên đăng nhập"
         android:layout_width="350dp"
         android:layout_gravity="center"

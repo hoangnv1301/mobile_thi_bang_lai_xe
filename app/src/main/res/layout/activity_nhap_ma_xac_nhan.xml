@@ -12,32 +12,22 @@
         android:layout_margin="20dp"
         android:layout_gravity="center"/>
     <TextView
-        android:text="Đặt lại mật khẩu"
+        android:text="Nhập mã xác nhận"
         android:textSize="24sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"/>
-
     <EditText
-        android:id="@+id/edtMatKhau"
-        android:hint="Mật khẩu mới"
+        android:id="@+id/edtMaXacNhan"
+        android:hint="Mã xác nhận"
         android:layout_width="350dp"
         android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"/>
-
-    <EditText
-        android:id="@+id/edtNhapLaiMatKhau"
-        android:hint="Nhập lại mật khẩu"
-        android:layout_width="350dp"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"/>
+        android:layout_height="wrap_content"/>
 
 
     <Button
         android:id="@+id/btnXacnhan"
-        android:text="Đặt lại"
+        android:text="Xác nhận"
         android:layout_width="350dp"
         android:layout_gravity="center"
         android:layout_height="wrap_content"/>

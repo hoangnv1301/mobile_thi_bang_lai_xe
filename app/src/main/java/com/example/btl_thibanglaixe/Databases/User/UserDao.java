@@ -20,4 +20,8 @@ public interface UserDao {
 
     @Query("SELECT * FROM user_table WHERE userAccount = :username")
     User getUsername(String username);
+
+    @Query("UPDATE User_table SET userPass = :passUpdate WHERE userAccount = :userAccount")
+    int updatePass(String passUpdate, String userAccount);
+
 }

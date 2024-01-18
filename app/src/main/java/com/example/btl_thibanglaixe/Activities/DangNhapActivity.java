@@ -1,6 +1,8 @@
 package com.example.btl_thibanglaixe.Activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -16,7 +18,7 @@ import com.example.btl_thibanglaixe.R;
 
 public class DangNhapActivity extends AppCompatActivity{
 
-    private EditText mEditTextUsername;
+    private EditText mEditTextUserAccount;
     private EditText mEditTextPassword;
     private Button mButtonLogin;
     private Button mButtonRegister;
@@ -26,12 +28,13 @@ public class DangNhapActivity extends AppCompatActivity{
     private Button btnQuenMatKhau;
 //    NguoiDungDao nguoiDungDao;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dangnhap);
 
-        mEditTextUsername = findViewById(R.id.usernameEditText);
+        mEditTextUserAccount = findViewById(R.id.userAccountEditText);
         mEditTextPassword = findViewById(R.id.passwordEditText);
         mButtonLogin = findViewById(R.id.loginButton);
         mButtonRegister = findViewById(R.id.registerButton);
@@ -41,14 +44,14 @@ public class DangNhapActivity extends AppCompatActivity{
         mButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = mEditTextUsername.getText().toString();
+                String userAccount = mEditTextUserAccount.getText().toString();
                 String password = mEditTextPassword.getText().toString();
 //                kiểm tra username và password đã được nhập chưa, nếu chưa thì yêu cầu
-                if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
+                if (TextUtils.isEmpty(userAccount) || TextUtils.isEmpty(password)) {
                     Toast.makeText(DangNhapActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                User userCheck = urp.getUsername(username);
+                User userCheck = urp.getUsername(userAccount);
                 if (userCheck == null){
                     Toast.makeText(DangNhapActivity.this,"Tài khoản hoặc mật khẩu không đúng", Toast.LENGTH_SHORT).show();
                 }else {
@@ -56,6 +59,14 @@ public class DangNhapActivity extends AppCompatActivity{
                         Toast.makeText(DangNhapActivity.this,"Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(DangNhapActivity.this, MainActivity.class);
                         startActivity(i);
+
+                        SharedPreferences preferences = getSharedPreferences("user_data", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+
+
+                        editor.putString("user_fullname", userCheck.getUserName().toString());
+                        editor.apply();
+
 
                     }else {
                         Toast.makeText(DangNhapActivity.this,"Tài khoản hoặc mật khẩu không đúng", Toast.LENGTH_SHORT).show();
@@ -73,13 +84,13 @@ public class DangNhapActivity extends AppCompatActivity{
             }
         });
 
-//        btnQuenMatKhau.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(DangNhapActivity.this, QuenMatKhauActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        btnQuenMatKhau.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DangNhapActivity.this, QuenMatKhauActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

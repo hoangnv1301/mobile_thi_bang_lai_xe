@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -26,12 +27,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button bt_a121, bt_b121, bt_cancel1, bt_a122, bt_b122, bt_cancel2, bt_cancel3, bt_dongY1;
     Dialog dialogThiSatHach, dialogMeoThucHanh, dialogDangXuat;
     TextView tv_name;
+    private SharedPreferences preferences;
     private EditText mEditTextUsername;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setControl();
+
+
+
+
+
+
     }
 
     public void setControl(){
@@ -53,7 +61,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 //        mEditTextUsername = findViewById(R.id.usernameEditText);
 //        String username = mEditTextUsername.getText().toString();
-        tv_name.setText("Xin chào: " + name);
+        preferences = getSharedPreferences("user_data", MODE_PRIVATE);
+        String userName = preferences.getString("user_fullname", null);
+        tv_name.setText("Xin chào: " + userName);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
