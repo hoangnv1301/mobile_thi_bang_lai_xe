@@ -24,8 +24,8 @@ public class GuiMaVeEmail extends AsyncTask<String, Void, Integer> {
     protected Integer doInBackground(String... params) {
        // System.out.println(params[0]);
         // Sender's email address and password
-        String senderEmail = "bichngocc170102@gmail.com";
-        String senderPassword = "wrdu xiur fgxr tofo";
+        String senderEmail = "tam210402@gmail.com";
+        String senderPassword = "iizv mclf mkkc vqit";
 
         // Recipient's email address
         String EmailNguoiNhan = params[0];

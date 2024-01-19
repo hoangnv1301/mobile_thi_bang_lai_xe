@@ -20,6 +20,7 @@ public class QuenMatKhauActivity extends AppCompatActivity {
     EditText edtEmail;
     Button btnGuiMa;
     private UserRepository urp;
+    private Button mButtonCancel;
 
     private EditText edtUserAccount;
 
@@ -30,6 +31,7 @@ public class QuenMatKhauActivity extends AppCompatActivity {
         setContentView(com.example.btl_thibanglaixe.R.layout.activity_quenmatkhau);
 
         edtUserAccount = findViewById(R.id.edtUserAccount);
+        mButtonCancel = findViewById(R.id.btnHuy);
         btnGuiMa = findViewById(com.example.btl_thibanglaixe.R.id.btnGuiMa);
         urp = new UserRepository(getApplication());
         btnGuiMa.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +60,13 @@ public class QuenMatKhauActivity extends AppCompatActivity {
                     new GuiMaVeEmail(QuenMatKhauActivity.this).execute(email);
                 }
 
+            }
+        });
+        mButtonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View v) {
+                Intent intent = new Intent(QuenMatKhauActivity.this, DangNhapActivity.class);
+                startActivity(intent);
             }
         });
 

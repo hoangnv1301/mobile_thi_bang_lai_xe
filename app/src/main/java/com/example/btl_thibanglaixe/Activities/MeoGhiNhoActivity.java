@@ -35,11 +35,14 @@ public class MeoGhiNhoActivity extends AppCompatActivity {
         setControl();
     }
     public void setControl(){
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("");
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
         rcv_meoGhiNho = findViewById(R.id.rcv_meoGhiNho);
         rcv_meoGhiNho.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         meoGhiNhoDAO = new MeoGhiNhoDAO(this);
@@ -69,16 +72,16 @@ public class MeoGhiNhoActivity extends AppCompatActivity {
               popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        if (item.getItemId() == R.id.item_tatca) {
-                            adapterRecyclerViewMeoGhiNho
-                                    = new AdapterRecyclerViewMeoGhiNho(MeoGhiNhoActivity.this, meoGhiNhoDAO.getListMeoGhiNho());
-                            rcv_meoGhiNho.removeItemDecoration(decor);
-                            decor = new StickyRecyclerHeadersDecoration(adapterRecyclerViewMeoGhiNho);
-                            rcv_meoGhiNho.addItemDecoration(decor, 1);
-                            rcv_meoGhiNho.setAdapter(adapterRecyclerViewMeoGhiNho);
-                        }
+
                         if(item.getItemId() == R.id.item_meolythuyet) {
-                            adapterRecyclerViewMeoGhiNho
+                            if (item.getItemId() == R.id.item_tatca) {
+                                adapterRecyclerViewMeoGhiNho
+                                        = new AdapterRecyclerViewMeoGhiNho(MeoGhiNhoActivity.this, meoGhiNhoDAO.getListMeoGhiNho());
+                                rcv_meoGhiNho.removeItemDecoration(decor);
+                                decor = new StickyRecyclerHeadersDecoration(adapterRecyclerViewMeoGhiNho);
+                                rcv_meoGhiNho.addItemDecoration(decor, 1);
+                                rcv_meoGhiNho.setAdapter(adapterRecyclerViewMeoGhiNho);
+                            }                     adapterRecyclerViewMeoGhiNho
                                     = new AdapterRecyclerViewMeoGhiNho(MeoGhiNhoActivity.this, meoGhiNhoDAO.getListMeoLyThuyet());
                             rcv_meoGhiNho.removeItemDecoration(decor);
                             decor = new StickyRecyclerHeadersDecoration(adapterRecyclerViewMeoGhiNho);

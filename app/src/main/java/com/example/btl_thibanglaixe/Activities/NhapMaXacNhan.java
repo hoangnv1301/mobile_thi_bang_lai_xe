@@ -36,6 +36,7 @@ public class NhapMaXacNhan extends AppCompatActivity {
 
         mMaXN= findViewById(R.id.edtMaXacNhan);
         mButtonAccept = findViewById(R.id.btnXacnhan);
+        mButtonCancel = findViewById(R.id.btnHuy);
         mButtonAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +55,14 @@ public class NhapMaXacNhan extends AppCompatActivity {
                         Toast.makeText(NhapMaXacNhan.this,"Mã xác nhận không đúng, vui lòng nhập lại!", Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+
+        mButtonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(android.view.View v) {
+                Intent intent = new Intent(NhapMaXacNhan.this, QuenMatKhauActivity.class);
+                startActivity(intent);
             }
         });
     }

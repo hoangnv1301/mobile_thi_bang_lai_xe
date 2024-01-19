@@ -37,6 +37,7 @@ public class AdapterRecyclerViewMeoGhiNho extends RecyclerView.Adapter<AdapterRe
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
         holder.tv_noiDung.setText(listMeoGhiNho.get(position).getNoiDung());
+
     }
 
     @Override
@@ -73,6 +74,7 @@ public class AdapterRecyclerViewMeoGhiNho extends RecyclerView.Adapter<AdapterRe
         public RecyclerViewHolder(View itemView) {
             super(itemView);
             tv_noiDung = itemView.findViewById(R.id.tv_noiDung);
+
         }
     }
 

@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.btl_thibanglaixe.Model.UserModel;
 import com.example.btl_thibanglaixe.R;
 
 
@@ -34,12 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setControl();
-
-
-
-
-
-
     }
 
     public void setControl(){
@@ -57,13 +52,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bt_meoGhiNho.setOnClickListener(this);
         bt_meoThucHanh.setOnClickListener(this);
         bt_lichSuBaiThi.setOnClickListener(this);
-        String name = getIntent().getStringExtra("name");
 
-//        mEditTextUsername = findViewById(R.id.usernameEditText);
-//        String username = mEditTextUsername.getText().toString();
-        preferences = getSharedPreferences("user_data", MODE_PRIVATE);
-        String userName = preferences.getString("user_fullname", null);
-        tv_name.setText("Xin chào: " + userName);
+        tv_name.setText("Xin chào: " + UserModel.getUserName());
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

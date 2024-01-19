@@ -58,6 +58,8 @@ public class DatLaiMatKhauActivity extends AppCompatActivity {
                              if (checkPass) {
 
                                  Toast.makeText(DatLaiMatKhauActivity.this, "Cập nhật thành công!", android.widget.Toast.LENGTH_SHORT).show();
+                                 Intent i = new Intent(DatLaiMatKhauActivity.this, DangNhapActivity.class);
+                                 startActivity(i);
 
                              }else {
                                  Toast.makeText(DatLaiMatKhauActivity.this, "Cập nhật thất bại!", android.widget.Toast.LENGTH_SHORT).show();
@@ -71,13 +73,13 @@ public class DatLaiMatKhauActivity extends AppCompatActivity {
 
                  }
             });
-//            btnHuy.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(android.view.View v) {
-//                    Intent intent = new Intent(DatLaiMatKhauActivity.this, DangNhapActivity.class);
-//                    startActivity(intent);
-//                }
-//            });
-//
+            btnHuy.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(android.view.View v) {
+                    Intent intent = new Intent(DatLaiMatKhauActivity.this, DangNhapActivity.class);
+                    startActivity(intent);
+                }
+            });
+
         }
 }

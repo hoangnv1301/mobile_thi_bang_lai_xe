@@ -66,39 +66,11 @@ public class DangKyActivity extends AppCompatActivity {
                     System.out.println(userinsert);
                     urp.insert(userinsert);
                     Toast.makeText(DangKyActivity.this,"Tạo tài khoản thành công!",Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(DangKyActivity.this, DangNhapActivity.class);
+                    startActivity(i);
                 }
 
             }
         });
-//        btnDangKy.setOnClickListener(new android.view.View.OnClickListener() {
-//            @Override
-//            public void onClick(android.view.View v) {
-//                String hoTen = edtHoTen.getText().toString();
-//                String tenDangNhap = edtTenDangNhap.getText().toString();
-//                String matKhau = edtMatKhau.getText().toString();
-//                String nhapLaiMatKhau = edtNhapLaiMatKhau.getText().toString();
-//                String email = edtEmail.getText().toString();
-//
-//                if(hoTen.equals("") || tenDangNhap.equals("") || matKhau.equals("") || nhapLaiMatKhau.equals("") || email.equals("")) {
-//                    android.widget.Toast.makeText(DangKyActivity.this, "Vui lòng nhập đầy đủ thông tin", android.widget.Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                if(!matKhau.equals(nhapLaiMatKhau)) {
-//                    android.widget.Toast.makeText(DangKyActivity.this, "Mật khẩu không khớp", android.widget.Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                nguoiDungDao = new NguoiDungDao(DangKyActivity.this);
-//                boolean check = nguoiDungDao.userExist(tenDangNhap);
-//                if(!check) {
-//                    nguoiDungDao.addUser(tenDangNhap, matKhau, email, hoTen);
-//                    android.widget.Toast.makeText(DangKyActivity.this, "Đăng ký thành công", android.widget.Toast.LENGTH_SHORT).show();
-//                    Intent intent = new Intent(DangKyActivity.this, DangNhapActivity.class);
-//                    startActivity(intent);
-//                }
-//                else {
-//                    android.widget.Toast.makeText(DangKyActivity.this, "Người dùng đã tồn tại", android.widget.Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
     }
 }

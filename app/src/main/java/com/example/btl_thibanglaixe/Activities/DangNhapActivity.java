@@ -2,7 +2,6 @@ package com.example.btl_thibanglaixe.Activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.btl_thibanglaixe.Databases.User.User;
 import com.example.btl_thibanglaixe.Databases.User.UserRepository;
+import com.example.btl_thibanglaixe.Model.UserModel;
 import com.example.btl_thibanglaixe.R;
 
 public class DangNhapActivity extends AppCompatActivity{
@@ -60,13 +60,7 @@ public class DangNhapActivity extends AppCompatActivity{
                         Intent i = new Intent(DangNhapActivity.this, MainActivity.class);
                         startActivity(i);
 
-                        SharedPreferences preferences = getSharedPreferences("user_data", MODE_PRIVATE);
-                        SharedPreferences.Editor editor = preferences.edit();
-
-
-                        editor.putString("user_fullname", userCheck.getUserName().toString());
-                        editor.apply();
-
+                        UserModel.setUserName(userCheck.getUserName());
 
                     }else {
                         Toast.makeText(DangNhapActivity.this,"Tài khoản hoặc mật khẩu không đúng", Toast.LENGTH_SHORT).show();
